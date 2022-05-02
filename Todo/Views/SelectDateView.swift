@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SelectDateView: View {
-    @Environment(\.presentationMode) var presentationMode
+    @Environment(\.dismiss) var dismiss
     
     @Binding var date: Date
     
@@ -21,7 +21,7 @@ struct SelectDateView: View {
                 VStack {
                     DatePicker("Date", selection: $date, displayedComponents: .date)
                         .onChange(of: date, perform: { _ in
-                            presentationMode.wrappedValue.dismiss()
+                            dismiss()
                         })
                         .datePickerStyle(.graphical)
                         .padding(.horizontal)
@@ -30,12 +30,20 @@ struct SelectDateView: View {
                 }
                 .toolbar {
                     ToolbarItemGroup(placement: .cancellationAction) {
-                        Button(action: { presentationMode.wrappedValue.dismiss() }) {
+                        Button(action: { dismiss() }) {
                             Text("Close")
+                        }
+                    }
+                    
+                    ToolbarItemGroup(placement: .primaryAction) {
+                        Button(action: { date = .now }) {
+                            Text("Today")
+                                .bold()
                         }
                     }
                 }
                 .navigationTitle("Select date")
+                .navigationBarTitleDisplayMode(.inline)
             }
         }
     }

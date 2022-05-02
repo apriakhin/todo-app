@@ -8,13 +8,12 @@
 import SwiftUI
 
 struct CreateTaskView: View {
-    @Environment(\.presentationMode) var presentationMode
+    @Environment(\.managedObjectContext) var moc
+    @Environment(\.dismiss) var dismiss
     
     @State private var title = ""
     @State private var date = Date.now
     @State private var isImportant = false
-    
-    let onTaskSaved: (Task) -> Void
     
     var body: some View {
         NavigationView {
@@ -29,7 +28,7 @@ struct CreateTaskView: View {
             }
             .toolbar {
                 ToolbarItemGroup(placement: .cancellationAction) {
-                    Button(action: { presentationMode.wrappedValue.dismiss() }) {
+                    Button(action: { dismiss() }) {
                         Text("Close")
                     }
                 }
@@ -37,18 +36,26 @@ struct CreateTaskView: View {
                 ToolbarItemGroup(placement: .primaryAction) {
                     Button(action: { onSave() }) {
                         Text("Save")
+                            .bold()
                     }
                     .disabled(isButtonSaveDisabled)
                 }
             }
             .navigationTitle("Create task")
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
     
     private func onSave() {
-        let task = Task(title: title, date: date, isImportant: isImportant, isDone: false)
-        onTaskSaved(task)
-        presentationMode.wrappedValue.dismiss()
+        let task = Task(context: moc)
+        task.uuid = UUID()
+        task.title = title
+        task.date = date
+        task.isImportant = isImportant
+        task.isDone = false
+        
+        try? moc.save()
+        dismiss()
     }
     
     private var isButtonSaveDisabled: Bool {
@@ -58,6 +65,6 @@ struct CreateTaskView: View {
 
 struct CreateTaskView_Previews: PreviewProvider {
     static var previews: some View {
-        CreateTaskView(onTaskSaved: { _ in })
+        CreateTaskView()
     }
 }

@@ -12,6 +12,7 @@
 		394406E6281DA0FD00F92D56 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394406E5281DA0FD00F92D56 /* Task.swift */; };
 		394406E8281DB6F100F92D56 /* TaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394406E7281DB6F100F92D56 /* TaskView.swift */; };
 		394406EA281DB70F00F92D56 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394406E9281DB70F00F92D56 /* EmptyView.swift */; };
+		395550A028200E5200F28E92 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3955509F28200E5200F28E92 /* DataController.swift */; };
 		39E83A1C2811FF9B00752F05 /* TodoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E83A1B2811FF9B00752F05 /* TodoApp.swift */; };
 		39E83A1E2811FF9B00752F05 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E83A1D2811FF9B00752F05 /* ContentView.swift */; };
 		39E83A202811FF9C00752F05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39E83A1F2811FF9C00752F05 /* Assets.xcassets */; };
@@ -25,6 +26,7 @@
 		394406E5281DA0FD00F92D56 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		394406E7281DB6F100F92D56 /* TaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskView.swift; sourceTree = "<group>"; };
 		394406E9281DB70F00F92D56 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
+		3955509F28200E5200F28E92 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		39E83A182811FF9B00752F05 /* Todo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39E83A1B2811FF9B00752F05 /* TodoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoApp.swift; sourceTree = "<group>"; };
 		39E83A1D2811FF9B00752F05 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -44,6 +46,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		394406EB28200D1800F92D56 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				39E83A1D2811FF9B00752F05 /* ContentView.swift */,
+				394406E3281DA07900F92D56 /* TaskListView.swift */,
+				394406E7281DB6F100F92D56 /* TaskView.swift */,
+				394406E9281DB70F00F92D56 /* EmptyView.swift */,
+				39E83A2C28120B3600752F05 /* CreateTaskView.swift */,
+				394406E1281D9C9800F92D56 /* SelectDateView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		394406EC28200D2F00F92D56 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				394406E5281DA0FD00F92D56 /* Task.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		39E83A0F2811FF9B00752F05 = {
 			isa = PBXGroup;
 			children = (
@@ -63,14 +86,10 @@
 		39E83A1A2811FF9B00752F05 /* Todo */ = {
 			isa = PBXGroup;
 			children = (
+				394406EC28200D2F00F92D56 /* Models */,
+				394406EB28200D1800F92D56 /* Views */,
 				39E83A1B2811FF9B00752F05 /* TodoApp.swift */,
-				39E83A1D2811FF9B00752F05 /* ContentView.swift */,
-				394406E3281DA07900F92D56 /* TaskListView.swift */,
-				394406E7281DB6F100F92D56 /* TaskView.swift */,
-				394406E9281DB70F00F92D56 /* EmptyView.swift */,
-				39E83A2C28120B3600752F05 /* CreateTaskView.swift */,
-				394406E1281D9C9800F92D56 /* SelectDateView.swift */,
-				394406E5281DA0FD00F92D56 /* Task.swift */,
+				3955509F28200E5200F28E92 /* DataController.swift */,
 				39E83A1F2811FF9C00752F05 /* Assets.xcassets */,
 				39E83A212811FF9C00752F05 /* Preview Content */,
 			);
@@ -159,6 +178,7 @@
 				394406E8281DB6F100F92D56 /* TaskView.swift in Sources */,
 				39E83A1C2811FF9B00752F05 /* TodoApp.swift in Sources */,
 				394406E4281DA07900F92D56 /* TaskListView.swift in Sources */,
+				395550A028200E5200F28E92 /* DataController.swift in Sources */,
 				394406EA281DB70F00F92D56 /* EmptyView.swift in Sources */,
 				394406E2281D9C9800F92D56 /* SelectDateView.swift in Sources */,
 				394406E6281DA0FD00F92D56 /* Task.swift in Sources */,

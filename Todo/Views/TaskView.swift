@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct TaskView: View {
-    let task: Task
-    let onTaskTapped: (UUID) -> Void
+    @Environment(\.managedObjectContext) var moc
+    
+    @StateObject var task: Task
     
     var body: some View {
         HStack {
@@ -24,20 +25,22 @@ struct TaskView: View {
                 }
             }
             .onTapGesture {
-                onTaskTapped(task.id)
+                onTaskTapped()
             }
             
             Text(task.title)
                 .fontWeight(task.isImportant ? .bold : .regular)
         }
     }
+    
+    private func onTaskTapped() {
+        task.isDone.toggle()
+        try? moc.save()
+    }
 }
 
 struct TaskView_Previews: PreviewProvider {
     static var previews: some View {
-        TaskView(
-            task: Task(title: "Title", date: .now, isImportant: true, isDone: false),
-            onTaskTapped: { _ in }
-        )
+        TaskView(task: Task())
     }
 }

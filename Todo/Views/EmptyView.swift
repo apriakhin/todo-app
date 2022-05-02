@@ -12,7 +12,7 @@ struct EmptyView: View {
     
     var body: some View {
         ZStack {
-            Color(uiColor: .secondarySystemBackground)
+            Color(uiColor: .systemGroupedBackground)
                 .ignoresSafeArea()
             
             VStack {
